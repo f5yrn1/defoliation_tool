@@ -4,6 +4,8 @@
   <meta charset="UTF-8">
   <title>Defoliation Dashboard</title>
   <link rel="stylesheet" href="style.css">
+  <!-- Plotly.js -->
+  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
 </head>
 <body>
   <h1>Defoliation Outcome Dashboard</h1>
@@ -15,9 +17,15 @@
   <label for="timeSelect">Timepoint:</label>
   <select id="timeSelect"></select>
 
-  <!-- Output -->
-  <h2>Outcome Value:</h2>
-  <div id="outputValue">Select options above</div>
+  <!-- Outputs -->
+  <h2>Estimated yield (% of non-defoliated)</h2>
+  <div id="outputYield">Select options above</div>
+
+  <h2>Estimated yield loss (%)</h2>
+  <div id="outputLoss">Select options above</div>
+
+  <!-- Chart -->
+  <div id="chart"></div>
 
   <script src="script.js"></script>
 </body>

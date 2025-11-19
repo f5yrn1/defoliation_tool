@@ -7,7 +7,8 @@ fetch("data.json")
 
     const rangeSelect = document.getElementById("rangeSelect");
     const timeSelect = document.getElementById("timeSelect");
-    const output = document.getElementById("outputValue");
+    const outputYield = document.getElementById("outputYield");
+    const outputLoss = document.getElementById("outputLoss");
 
     // Populate dropdowns
     ranges.forEach(r => {
@@ -31,8 +32,31 @@ fetch("data.json")
       if (!selectedRange || !selectedTime) return;
 
       const row = data.find(d => d.defoliation_percentage === selectedRange);
-      const value = row[selectedTime];
-      output.textContent = value;
+      const rawValue = parseFloat(row[selectedTime]);
+
+      // Convert to percentages
+      const yieldPct = (rawValue * 100).toFixed(1);
+      const lossPct = ((1 - rawValue) * 100).toFixed(1);
+
+      // Update outputs
+      outputYield.textContent = yieldPct + " %";
+      outputLoss.textContent = lossPct + " %";
+
+      // Plot line chart for selected range
+      const x = timepoints;
+      const y = timepoints.map(t => parseFloat(row[t]) * 100); // convert to %
+
+      Plotly.newPlot("chart", [{
+        x: x,
+        y: y,
+        type: "scatter",
+        mode: "lines+markers",
+        line: { color: "steelblue" }
+      }], {
+        title: `Estimated yield (% of non-defoliated) for ${selectedRange}`,
+        yaxis: { title: "Yield (%)" },
+        margin: { t: 40 }
+      });
     }
 
     rangeSelect.addEventListener("change", updateOutput);

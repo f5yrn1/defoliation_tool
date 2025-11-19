@@ -17,8 +17,14 @@ select {
   padding: 5px;
 }
 
-#outputValue {
+#outputYield, #outputLoss {
   font-size: 1.5em;
   color: steelblue;
-  margin-top: 20px;
+  margin-top: 10px;
+}
+
+#chart {
+  width: 100%;
+  height: 500px;
+  margin-top: 30px;
 }
