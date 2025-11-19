@@ -4,28 +4,53 @@
   <meta charset="UTF-8">
   <title>Defoliation Dashboard</title>
   <link rel="stylesheet" href="style.css">
-  <!-- Plotly.js -->
-  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
 </head>
 <body>
   <h1>Defoliation Outcome Dashboard</h1>
 
-  <!-- Dropdowns -->
-  <label for="rangeSelect">Defoliation Range:</label>
-  <select id="rangeSelect"></select>
+  <div class="container">
+    <!-- Left side: dropdowns + outputs -->
+    <div class="controls">
+      <label for="rangeSelect">Defoliation Range:</label>
+      <select id="rangeSelect"></select>
 
-  <label for="timeSelect">Timepoint:</label>
-  <select id="timeSelect"></select>
+      <label for="timeSelect">Timepoint:</label>
+      <select id="timeSelect"></select>
 
-  <!-- Outputs -->
-  <h2>Estimated yield (% of non-defoliated)</h2>
-  <div id="outputYield">Select options above</div>
+      <h2>Estimated yield (% of non-defoliated)</h2>
+      <div id="outputYield">Select options above</div>
 
-  <h2>Estimated yield loss (%)</h2>
-  <div id="outputLoss">Select options above</div>
+      <h2>Estimated yield loss (%)</h2>
+      <div id="outputLoss">Select options above</div>
+    </div>
 
-  <!-- Chart -->
-  <div id="chart"></div>
+    <!-- Right side: potato development stages table -->
+    <div class="stages">
+      <h2>Table 1: Potato development stages</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Estimated days after planting</th>
+            <th>Weeks after emergence</th>
+            <th>Stage</th>
+            <th>Irigoyen et al 2011</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>15</td><td></td><td>1</td><td>Tuber sprouting</td></tr>
+          <tr><td>20</td><td></td><td>2</td><td>Two first leaves</td></tr>
+          <tr><td>32</td><td>2</td><td>3</td><td>Additional primary stems development. 6 or 8 visible knots on the stems.</td></tr>
+          <tr><td>43</td><td>3</td><td>4</td><td>Plant growth to 30 cm. 10–12 visible knots on the primary stems. No buds and tuber initiation.</td></tr>
+          <tr><td>55</td><td>5</td><td>5</td><td>Buds of primary stems visible. Small tubers visible. Beginning of tuber formation</td></tr>
+          <tr><td>66</td><td>7</td><td>6</td><td>Open inflorescences of primary stems. Fast elongation of secondary stems and buds formation. Reached the 30% final tuber mass.</td></tr>
+          <tr><td>77</td><td>8</td><td>7</td><td>Complete development on primary stems. Open flowers on secondary stems and buds on tertiary stems. Reached the 50% of the final mass of tuber.</td></tr>
+          <tr><td>88</td><td>10</td><td>8</td><td>All flowers of primary and secondary stems have fallen. 60% of the final mass of tuber.</td></tr>
+          <tr><td>99</td><td>11</td><td>9</td><td>All flowers have fallen and leaf yellowing. Reached total mass of tuber. Tubers detach easily.</td></tr>
+          <tr><td>120</td><td>14</td><td>10</td><td>Complete dried of the plant and tuber maturation depending on cultivar</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
 
   <script src="script.js"></script>
 </body>

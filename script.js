@@ -41,22 +41,6 @@ fetch("data.json")
       // Update outputs
       outputYield.textContent = yieldPct + " %";
       outputLoss.textContent = lossPct + " %";
-
-      // Plot line chart for selected range
-      const x = timepoints;
-      const y = timepoints.map(t => parseFloat(row[t]) * 100); // convert to %
-
-      Plotly.newPlot("chart", [{
-        x: x,
-        y: y,
-        type: "scatter",
-        mode: "lines+markers",
-        line: { color: "steelblue" }
-      }], {
-        title: `Estimated yield (% of non-defoliated) for ${selectedRange}`,
-        yaxis: { title: "Yield (%)" },
-        margin: { t: 40 }
-      });
     }
 
     rangeSelect.addEventListener("change", updateOutput);
