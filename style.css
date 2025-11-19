@@ -1,0 +1,24 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 40px;
+  background: #f9f9f9;
+}
+
+h1 {
+  color: #333;
+}
+
+label {
+  margin-right: 10px;
+}
+
+select {
+  margin: 10px;
+  padding: 5px;
+}
+
+#outputValue {
+  font-size: 1.5em;
+  color: steelblue;
+  margin-top: 20px;
+}
